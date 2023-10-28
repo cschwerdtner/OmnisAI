@@ -1,0 +1,67 @@
+{
+	"ident": 1014,
+	"order": 8,
+	"objtype": "kPagedPane",
+	"properties": {
+		"active": true,
+		"alpha": 255,
+		"animatetransitions": false,
+		"arialabel": "",
+		"arialabelledby": "",
+		"autoscroll": false,
+		"backalpha": 255,
+		"backcolor": "kJSThemeColorDisabled",
+		"bordercolor": "kJSThemeColorBorder",
+		"borderradius": "0",
+		"componentinfo": {
+
+		},
+		"contextmenu": "",
+		"cssclassname": "",
+		"currentpage": 1,
+		"dataname": "",
+		"desgroup": 0,
+		"designactive": true,
+		"deslock": false,
+		"disablesystemfocus": true,
+		"effect": "kJSborderNone",
+		"enabled": true,
+		"events": "",
+		"fieldstyle": "",
+		"hasshadow": false,
+		"landmark": "kLandmarkNone",
+		"linestyle": 1,
+		"nexttabobject": "",
+		"objlink": 0,
+		"pagecount": 1,
+		"preventlayoutanimation": false,
+		"scrolltochangepage": false,
+		"sidepanel": false,
+		"sidepanelmode": "kSidePanelModeNone",
+		"tooltip": "",
+		"userinfo": "",
+		"visible": true
+	},
+	"layout": {
+		"320": {
+			"left": 0,
+			"top": 602,
+			"width": 320,
+			"height": 96,
+			"dragborder": false,
+			"edgefloat": "kEFposnStatusBar",
+			"errortextpos": "kJSErrorTextPosUnder",
+			"visible": true
+		},
+		"768": {
+			"left": 0,
+			"top": 602,
+			"width": 768,
+			"height": 96,
+			"dragborder": false,
+			"edgefloat": "kEFposnStatusBar",
+			"errortextpos": "kJSErrorTextPosUnder",
+			"visible": true
+		}
+	}
+}

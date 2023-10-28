@@ -1,0 +1,72 @@
+{
+	"ident": 1020,
+	"order": 12,
+	"objtype": "kComponent",
+	"componentlib": "jsLabel",
+	"componentctrl": "Label Object",
+	"properties": {
+		"active": false,
+		"alpha": 255,
+		"backalpha": 0,
+		"backcolor": "kJSThemeColorBackground",
+		"componentinfo": {
+
+		},
+		"contextmenu": "",
+		"cssclassname": "",
+		"dataname": "",
+		"desgroup": 0,
+		"designactive": true,
+		"deslock": false,
+		"disabledefaultcontextmenu": false,
+		"disablesystemfocus": true,
+		"dropmode": "kAcceptNone",
+		"enabled": false,
+		"events": "",
+		"fieldstyle": "",
+		"font": 1,
+		"fontsize": 9,
+		"fontstyle": "kPlain",
+		"horzpadding": 0,
+		"labelfor": "",
+		"nexttabobject": "",
+		"objlink": 65544,
+		"preventlayoutanimation": false,
+		"removefromtaborder": false,
+		"sidepanel": false,
+		"sidepanelmode": "kSidePanelModeNone",
+		"tagtype": "kJSLabelTypeLabel",
+		"text": "by Christoph Schwerdtner (cs@qmed.de)",
+		"textcolor": "kColorDefault",
+		"textishtml": false,
+		"tooltip": "",
+		"userinfo": "",
+		"vertcentertext": true,
+		"vertpadding": 0,
+		"visible": true
+	},
+	"layout": {
+		"320": {
+			"left": 15,
+			"top": 62,
+			"width": 293,
+			"height": 34,
+			"align": "kLeftJst",
+			"dragborder": false,
+			"edgefloat": "kEFtopBottom",
+			"errortextpos": "kJSErrorTextPosUnder",
+			"visible": true
+		},
+		"768": {
+			"left": 18,
+			"top": 56,
+			"width": 682,
+			"height": 25,
+			"align": "kLeftJst",
+			"dragborder": false,
+			"edgefloat": "kEFtopBottom",
+			"errortextpos": "kJSErrorTextPosUnder",
+			"visible": true
+		}
+	}
+}

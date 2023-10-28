@@ -1,0 +1,66 @@
+Calculate iURI as 'https://api.openai.com/v1/completions'
+Calculate iHttpMethod as kOW3httpMethodPost
+Calculate iHttpAuthType as kOW3httpAuthTypeNone
+Calculate iModel as pModel
+#Calculate aRow as row("text-davinci-003","What gifts should I buy for Christmas?",0.5,64)
+
+
+Begin text block
+Line:{
+Switch pModel
+	Case "gpt-3.5-turbo"
+		Calculate iURI as 'https://api.openai.com/v1/chat/completions'
+		Line:    "model": "gpt-3.5-turbo",
+		Line:    "messages": [kLeftSB]{"role": "user", "content": "[pText]"}[kRightSB],
+		Line:
+	Case "gpt-4-32k"
+		Calculate iURI as 'https://api.openai.com/v1/chat/completions'
+		Line:    "model": "gpt-4-32k",
+		Line:    "messages": [kLeftSB]{"role": "user", "content": "[pText]"}[kRightSB],
+		Line:
+	Case "gpt-4"
+		Calculate iURI as 'https://api.openai.com/v1/chat/completions'
+		Line:    "model": "gpt-4",
+		Line:    "messages": [kLeftSB]{"role": "user", "content": "[pText]"}[kRightSB],
+		Line:
+		
+	Case "text-davinci-003"
+		Line:    "model": "text-davinci-003",
+		Line:   "prompt": "[pText]",
+End Switch
+
+Line:    "temperature": [pTemperature],
+Line:    "max_tokens": [pMaxTokens]
+Line:}
+End text block
+Get text block aJSON
+
+
+Do iHeaderList.$define(iHeaderName,iHeaderValue)
+Do iHeaderList.$add("Authorization",con("Bearer ",iApiKeyOpenAI))
+Do iHeaderList.$add("Content-Type","application/json")
+
+If $cinst.$execute(1,aJSON)
+	Calculate alResult as OJSON.$jsontolistorrow(irResult.responseContent)
+	Calculate icErrortext as alResult.1.error.message
+	If len(icErrortext)
+		Calculate acResult as icErrortext
+		
+	Else
+		Calculate alResult as alResult.1.choices
+		Calculate aRow as alResult.1.c1
+		
+		Switch pModel
+			Case "gpt-3.5-turbo"
+				Calculate acResult as aRow.message.content
+				
+			Case "text-davinci-003"
+				Calculate acResult as trim(aRow.text,1,1,kLf)
+				
+		End Switch
+		
+		
+	End If
+	
+End If
+Quit method acResult

@@ -1,0 +1,52 @@
+Do $extobjects.OW3.$objects.OAUTH2Worker.$newref() Returns iOAUTH2
+
+Calculate iResponse as #NULL
+Calculate iResponseHeaders as #NULL
+Calculate iFormattedResponseContent as ""
+
+Do $cinst.$redraw(1,1)
+# Do method checkHttpObject
+
+If iUseOAUTH2
+	Do $cinst.$oauth2.$assign(iOAUTH2)
+Else
+	Do $cinst.$oauth2.$assign(#NULL)
+End If
+
+Calculate $cinst.$followredirects as iFollowRedirects
+Calculate $cinst.$timeout as iTimeout
+Calculate $cinst.$proxyserver as iProxyServer
+Calculate $cinst.$proxytunnel as iProxyTunnel
+Calculate $cinst.$proxyauthtype as iOAUTH2ProxyAuthList.iAuthType
+Calculate $cinst.$proxyauthusername as iProxyUser
+Calculate $cinst.$proxyauthpassword as iProxyPassword
+Calculate $cinst.$callprogress as iCallProgress
+
+If iCallProgress
+	Open trace log (Clear trace log)
+End If
+Calculate $cinst.$responsepath as iResponseContentPath
+
+Calculate iContent as pContent
+
+Do $cinst.$init(iURI,iHttpMethod,iHeaderList,iContent,iHttpAuthType,iUser,iPassword) Returns lOk ## send from buffer
+If not(lOk)
+	OK message {Error [$cinst.$errorcode]: [$cinst.$errortext]}
+	Quit method kFalse
+End If
+
+If pRun
+	Do $cinst.$run() Returns lOk
+Else
+	Do $cinst.$start() Returns lOk
+	If lOk
+		#Calculate $cinst.$objs.ScrollBox.$objs.cancel.$enabled as kTrue
+		#Calculate $cinst.$objs.ScrollBox.$objs.execute.$enabled as kFalse
+		#Calculate $cinst.$objs.ScrollBox.$objs.executethencancel.$enabled as kFalse
+	End If
+End If
+If not(lOk)
+	OK message {Error [$cinst.$errorcode]: [$cinst.$errortext]}
+	Quit method kFalse
+End If
+Quit method kTrue

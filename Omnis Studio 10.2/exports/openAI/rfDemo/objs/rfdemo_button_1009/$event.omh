@@ -1,0 +1,2 @@
+On evClick
+	Do ioOpenAI.$chat(iPrompt,'text-davinci-003') Returns iAnswer

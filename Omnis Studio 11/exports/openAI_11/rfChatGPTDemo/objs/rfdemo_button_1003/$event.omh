@@ -1,0 +1,5 @@
+On evClick
+	Do ioOpenAI.$getModels() Returns ilModels
+	If len(ioOpenAI.$geterrortext())
+		Do $cinst.$showmessage(ioOpenAI.$geterrortext())
+	End If

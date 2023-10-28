@@ -1,0 +1,9 @@
+Begin text block
+# Text:Begrüße die Teilnehmer der Omnis Entwickler Konferenz in Oberursel.
+# Text:Sag auch bitte dass sich die nachfolgenden Vorträge um ca. 30 Minuten verschieben.
+# Text:Dein Name ist übrigens Dave.
+Text:Welcome participants of the Omnis Developer Conference Euromnis 2023 in Arnhem. 
+Text:Please note that the upcoming presentations will be delayed by approximately 30 minutes. My name is Dave, by the way.
+End text block
+Get text block aText
+Quit method aText

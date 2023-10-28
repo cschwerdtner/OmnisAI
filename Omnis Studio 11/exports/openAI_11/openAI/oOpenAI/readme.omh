@@ -1,0 +1,14 @@
+# 1. set apikey first using init value or method $setApiKey
+# 2. use $chat to send prompt and get answer from chatGPT
+
+# This object supports this models:
+# gpt-3.5-turbo (recommended)
+# text-davinci-003
+#
+# usage:
+# $getModels returns list of available models
+# $chat(prompt,model) returns answer from chatGPT using specified model
+#
+# improvements tbd:
+# $chat only sends given prompt to chatgpt api.
+# History may be send as additional prompts to maintain context.

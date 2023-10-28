@@ -1,0 +1,33 @@
+Calculate iURI as 'https://api.openai.com/v1/models'
+Calculate iHttpMethod as kOW3httpMethodGet
+Calculate iHttpAuthType as kOW3httpAuthTypeNone
+
+Do iHeaderList.$define(iHeaderName,iHeaderValue)
+Do iHeaderList.$add("Authorization",con("Bearer ",iApiKeyOpenAI))
+
+If $cinst.$execute(1)
+	Calculate alResult as OJSON.$jsontolistorrow(irResult.responseContent)
+	
+	Calculate icErrortext as alResult.1.error.message
+	If len(icErrortext)
+		Calculate acResult as icErrortext
+		
+	Else
+		
+		Calculate alResult as alResult.1.data
+		Calculate acResult as OJSON.$formatjson(irResult.responseContent)
+		
+		For i from 1 to alResult.$colcount step 1
+			Calculate elem as alResult.1.c[i]
+			If alModels.$linecount=0
+				#Do alModels.$a
+				Calculate alModels as elem
+			Else
+				Do alModels.$merge(elem)
+			End If
+		End For
+	End If
+Else
+	
+End If
+Quit method alModels
